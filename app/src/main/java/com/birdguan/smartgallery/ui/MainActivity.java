@@ -1,8 +1,10 @@
-package com.birdguan.smartgallery;
+package com.birdguan.smartgallery.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.birdguan.smartgallery.R;
 
 public class MainActivity extends AppCompatActivity {
 
