@@ -1,2 +1,3 @@
 rootProject.name='SmartGallery'
-include ':app'
+include ':app', ':opencvlibrary', ':loggradleplugin'
+include ':openCVLibrary340'
