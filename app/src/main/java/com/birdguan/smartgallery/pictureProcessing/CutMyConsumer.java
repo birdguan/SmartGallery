@@ -84,7 +84,7 @@ public class CutMyConsumer extends BaseMyConsumer {
 
     public native void cut(long inMatAddr, long outMatAddr, int x, int y, int width, int height);
 
-    public Rect Rect() {
+    public Rect getRect() {
         return mRect;
     }
 

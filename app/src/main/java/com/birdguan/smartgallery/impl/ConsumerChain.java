@@ -4,6 +4,7 @@ import android.provider.Telephony;
 
 import com.birdguan.smartgallery.base.Chain;
 import com.birdguan.smartgallery.base.util.MyLog;
+import com.birdguan.smartgallery.pictureProcessing.CutMyConsumer;
 
 import org.jetbrains.annotations.NotNull;
 import org.opencv.core.Mat;
