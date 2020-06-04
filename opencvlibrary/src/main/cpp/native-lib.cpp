@@ -451,4 +451,12 @@ Java_com_example_whensunset_pictureprocessinggraduationdesign_pictureProcessing_
     Mat& oldMat = *(Mat *) in;
     Mat& newMat = *(Mat *) out;
     comicBooksFilter(oldMat , newMat);
+}extern "C"
+JNIEXPORT void JNICALL
+Java_com_birdguan_smartgallery_pictureProcessing_CutMyConsumer_cut(JNIEnv *env, jobject thiz,
+                                                                   jlong in_mat_addr,
+                                                                   jlong out_mat_addr, jint x,
+                                                                   jint y, jint width,
+                                                                   jint height) {
+    // TODO: implement cut()
 }

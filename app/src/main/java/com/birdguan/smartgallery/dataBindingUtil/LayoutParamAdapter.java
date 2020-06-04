@@ -7,6 +7,7 @@ import android.widget.LinearLayout;
 import androidx.databinding.BindingAdapter;
 
 import com.birdguan.smartgallery.base.util.MyLog;
+import com.birdguan.smartgallery.base.util.MyUtil;
 
 /**
  * @Author: birdguan

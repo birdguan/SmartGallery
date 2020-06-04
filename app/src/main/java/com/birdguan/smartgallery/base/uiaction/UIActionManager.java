@@ -10,6 +10,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
+
+import io.reactivex.BackpressureStrategy;
+import io.reactivex.Flowable;
+import io.reactivex.FlowableEmitter;
+import io.reactivex.FlowableOnSubscribe;
 
 /**
  * @Author: birdguan
@@ -33,7 +39,10 @@ public class UIActionManager {
 
     static {
         // 添加新的UIAction
-        UIActionClassMap.put(CLICK_ACTION, )
+        UIActionClassMap.put(CLICK_ACTION, ClickUIAction.class);
+        UIActionClassMap.put(ITEM_SELECTED_ACTION, ItemSelectedUIAction.class);
+        UIActionClassMap.put(PROGRESS_CHANGED_ACTION, ProgressChangedUIAction.class);
+        UIActionClassMap.put(TEXT_CHANGED_ACTION, TextChangedUIAction.class);
     }
 
     private BaseVM mBaseVM;
@@ -57,7 +66,59 @@ public class UIActionManager {
         }
     }
 
+    public void doClick(int eventListnerPosition, Object... params) {
+        doUIAction(eventListnerPosition, CLICK_ACTION, params);
+    }
 
+    public void doItemSelected(int eventListenerPosition, Object... params) {
+        doUIAction(eventListenerPosition, ITEM_SELECTED_ACTION, params);
+    }
+
+    public void doProgressChanged(int eventListenerPosition, Object... params) {
+        doUIAction(eventListenerPosition, PROGRESS_CHANGED_ACTION, params);
+    }
+
+    public void doTextChanged(int eventListenerPosition, Object...params) {
+        doUIAction(eventListenerPosition, TEXT_CHANGED_ACTION, params);
+    }
+
+    public void doUIAction(int eventListenerPosition, int uiActionFlag, Object... params) {
+        if (!isEnable) {
+            MyLog.d(TAG, "doUIAction", "状态:ViewModelName:",
+                    "本ViewModel的事件不允许被触发", mBaseVM.getRealClassName());
+            return;
+        }
+        UIAction uiAction = getUIAction(uiActionFlag);
+        mBaseVM.checkEventListenerList(eventListenerPosition);
+        if (!uiAction.checkParams(params)) {
+            MyLog.d(TAG, "doUIAction",
+                    "状态:eventListenerPosition:uiActionFlag:params:",
+                    "参数校验失败，不可继续执行", eventListenerPosition, uiActionFlag, params);
+            throw new RuntimeException("参数校验失败，不可继续执行");
+        }
+
+        uiAction.onTriggerListener(
+                eventListenerPosition,
+                mBaseVM,
+                () -> callPreEventAction(eventListenerPosition, uiActionFlag, mBaseVM, params),
+                () -> callAfterEventAction(eventListenerPosition, uiActionFlag, mBaseVM, params),
+                params
+        );
+    }
+
+    private void callPreEventAction(int eventListenerPosition, int uiActionFlag,
+                                    BaseVM baseVM, Object... params) {
+        for (int i = 0; i < mPreEventActionList.size(); i++) {
+            mPreEventActionList.get(i).doPreAction(eventListenerPosition, uiActionFlag, baseVM, params);
+        }
+    }
+
+    private void callAfterEventAction(int eventListenerPosition, int uiActionFlag,
+                                      BaseVM baseVM, Object... params) {
+        for (int i = 0; i < mAfterEventActionList.size(); i++) {
+            mAfterEventActionList.get(i).doAfterAction(eventListenerPosition, uiActionFlag, baseVM, params);
+        }
+    }
 
     private UIAction initUIAction(int type) {
         Class<? extends UIAction> uiActionClass = UIActionClassMap.get(type);
@@ -71,8 +132,65 @@ public class UIActionManager {
         }
     }
 
+    public <T extends UIAction> Flowable<T> getDefaultThrottleFlowable(int uiActionFlag) {
+        return getDefaultThrottleFlowable(DEFAULT_THROTTLE_MILLISECONDS, uiActionFlag);
+    }
 
+    public <T extends UIAction> Flowable<T> getDefaultThrottleFlowable(int throttleMilliseconds,
+                                                                       int uiActionFlag) {
+        return Flowable.create(new ViewModelThrottleOnSubscribe<>(getUIAction(uiActionFlag)),
+                BackpressureStrategy.BUFFER)
+                .throttleFirst(throttleMilliseconds, TimeUnit.MICROSECONDS)
+                .filter(uiAction -> {
+                    MyLog.d(TAG, "getDefaultThrottleFlowable", "状态:uiAction",
+                            "", uiAction);
+                    return uiAction != null;
+                })
+                .map(uiAction -> {
+                    uiAction.getCallAllPreEventAction().callAllPreEventAction();
+                    return (T)uiAction;
+                });
+    }
 
+    class ViewModelThrottleOnSubscribe<T extends UIAction> implements FlowableOnSubscribe<T> {
+        final T mUIAction;
+
+        public ViewModelThrottleOnSubscribe(T uiAction) {
+            this.mUIAction = uiAction;
+        }
+
+        @Override
+        public void subscribe(FlowableEmitter<T> emitter) throws Exception {
+            UIAction.UIActionListener<T> listener = uiAction -> {
+                if (!emitter.isCancelled()) {
+                    emitter.onNext(uiAction);
+                }
+            };
+            mUIAction.setListener(listener);
+        }
+    }
+
+    public void addUIAction(Integer uiActionFlag, UIAction uiAction) {
+        mUIActionMap.put(uiActionFlag, uiAction);
+    }
+
+    public UIAction getUIAction(Integer uiActionFlag) {
+        if (uiActionFlag == null) {
+            throw new RuntimeException("uiActionFlag不可为null");
+        }
+        if (mUIActionMap.size() == 0) {
+            throw new RuntimeException("该VM没有添加UIAction");
+        }
+        UIAction uiAction = mUIActionMap.get(uiActionFlag);
+        if (uiAction == null) {
+            throw new RuntimeException("没有这种UIAction");
+        }
+        return uiAction;
+    }
+
+    public boolean isEnable() {return isEnable;}
+
+    public void setEnable(boolean enable) {isEnable = enable;}
 
     public interface PreEventAction {
         void doPreAction(int eventListenerPosition, int uiActionFlag, BaseVM baseVM, Object... params);
@@ -91,6 +209,10 @@ public class UIActionManager {
     }
 
     public void setPreEventAction(PreEventAction preEventAction) {
+        mPreEventActionList.add(preEventAction);
+    }
 
+    public void setAfterEventAction(AfterEventAction afterEventAction) {
+        mAfterEventActionList.add(afterEventAction);
     }
 }

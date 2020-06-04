@@ -66,10 +66,10 @@ dependencies {
     api 'com.squareup.retrofit2:retrofit:2.2.0'
 
     // Okhttp库
-    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    api 'com.squareup.okhttp3:okhttp:3.10.0'
 
 
-    implementation 'org.tensorflow:tensorflow-android:1.13.1'
+    api 'org.tensorflow:tensorflow-android:1.13.1'
 }
 repositories {
     mavenCentral()

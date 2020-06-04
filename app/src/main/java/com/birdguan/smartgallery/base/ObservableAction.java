@@ -1,6 +1,7 @@
 package com.birdguan.smartgallery.base;
 
-import java.util.Observable;
+
+import androidx.databinding.Observable;
 
 /**
  * @Author: birdguan
