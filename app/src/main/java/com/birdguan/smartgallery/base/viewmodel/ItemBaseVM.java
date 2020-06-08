@@ -12,7 +12,7 @@ import static com.birdguan.smartgallery.staticParam.ObserverMapKey.ItemBaseVM_mP
  * @Author: birdguan
  * @Date: 2020/5/25 16:03
  */
-public class ItemBaseVM extends ChildBaseVM{
+public abstract class ItemBaseVM extends ChildBaseVM{
     private static final String TAG = "SmartGallery: ItemBaseVM";
 
     protected Integer mPosition = -1;
