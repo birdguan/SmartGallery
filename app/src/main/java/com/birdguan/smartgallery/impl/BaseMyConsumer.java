@@ -90,7 +90,7 @@ public abstract class BaseMyConsumer implements MyConsumer<Mat, Mat> {
 
     public abstract void onCancellationImpl();
 
-    public String GetRealName() {
+    public String getRealName() {
         return getClass().getSimpleName();
     }
 

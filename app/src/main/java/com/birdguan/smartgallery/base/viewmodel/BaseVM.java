@@ -146,7 +146,7 @@ public abstract class BaseVM extends ViewModel {
         mUIActionManager.setPreEventAction(preEventAction);
     }
 
-    public void beJoinenAfterActionToEvent(UIActionManager.AfterEventAction afterEventAction) {
+    public void beJoinedAfterActionToEvent(UIActionManager.AfterEventAction afterEventAction) {
         mUIActionManager.setAfterEventAction(afterEventAction);
     }
 }

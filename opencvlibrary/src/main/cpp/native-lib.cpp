@@ -459,4 +459,44 @@ Java_com_birdguan_smartgallery_pictureProcessing_CutMyConsumer_cut(JNIEnv *env, 
                                                                    jint y, jint width,
                                                                    jint height) {
     // TODO: implement cut()
+}extern "C"
+JNIEXPORT void JNICALL
+Java_com_birdguan_smartgallery_pictureProcessing_PictureFrameMyConsumer_mixed(JNIEnv *env,
+                                                                              jobject thiz,
+                                                                              jlong in_mat_addr,
+                                                                              jlong insert_mat_addr,
+                                                                              jlong out_mat_addr,
+                                                                              jint x, jint y,
+                                                                              jint width,
+                                                                              jint height,
+                                                                              jfloat alph) {
+    // TODO: implement mixed()
+}extern "C"
+JNIEXPORT void JNICALL
+Java_com_birdguan_smartgallery_pictureProcessing_PictureParamMyConsumer_pictureParamChange(
+        JNIEnv *env, jobject thiz, jlong in_mat_addr, jlong out_mat_addr, jint brightness,
+        jint contrast, jint saturation, jint tonal) {
+    // TODO: implement pictureParamChange()
+}extern "C"
+JNIEXPORT void JNICALL
+Java_com_birdguan_smartgallery_pictureProcessing_WhiteBanlanceMyConsumer_whiteBalance(JNIEnv *env,
+                                                                                      jobject thiz,
+                                                                                      jlong in_mat_addr,
+                                                                                      jlong out_mat_addr) {
+    // TODO: implement whiteBalance()
+}extern "C"
+JNIEXPORT void JNICALL
+Java_com_birdguan_smartgallery_pictureProcessing_RotateMyConsumer_rotate(JNIEnv *env, jobject thiz,
+                                                                         jlong in_mat_addr,
+                                                                         jlong out_mat_addr,
+                                                                         jdouble angle,
+                                                                         jdouble scale) {
+    // TODO: implement rotate()
+}extern "C"
+JNIEXPORT void JNICALL
+Java_com_birdguan_smartgallery_pictureProcessing_FlipMyConsumer_flip(JNIEnv *env, jclass clazz,
+                                                                     jlong src_native_obj,
+                                                                     jlong dst_native_obj,
+                                                                     jint flip_code) {
+    // TODO: implement flip()
 }

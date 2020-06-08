@@ -5,10 +5,10 @@
     app:ignore="NamespaceTypo">
 
     <data class = 'com.example.whensunset.pictureprocessinggraduationdesign.ui.MainActivityBinding'>
-        <import type="com.example.whensunset.pictureprocessinggraduationdesign.dataBindingUtil.LayoutManager"/>
-        <import type="com.example.whensunset.pictureprocessinggraduationdesign.dataBindingUtil.ItemDecoration"/>
-        <import type="com.example.whensunset.pictureprocessinggraduationdesign.viewModel.itemManagerVM.PictureItemManagerVM"/>
-        <import type="com.example.whensunset.pictureprocessinggraduationdesign.viewModel.itemManagerVM.DirectorySpinnerItemManagerVM"/>
+        <import type="com.birdguan.smartgallery.dataBindingUtil.LayoutManager"/>
+        <import type="com.birdguan.smartgallery.dataBindingUtil.ItemDecoration"/>
+        <import type="com.birdguan.smartgallery.viewModel.itemManagerVM.PictureItemManagerVM"/>
+        <import type="com.birdguan.smartgallery.viewModel.itemManagerVM.DirectorySpinnerItemManagerVM"/>
         <import type="android.view.View"/>
 
         <variable name="viewModel" type="com.example.whensunset.pictureprocessinggraduationdesign.viewModel.MainActivityVM"/>
