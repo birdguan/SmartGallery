@@ -35,7 +35,13 @@ public interface ITypefaceFetch {
         throw new RuntimeException("没有这种字体");
     }
 
-
+    static List<String> getAllTypefaceNameFromAll() {
+        List<String> typefaceNameList = new ArrayList<>();
+        for (ITypefaceFetch iTypefaceFetch : mITypefaceFetch) {
+            typefaceNameList.addAll(iTypefaceFetch.getAllTypefaceName());
+        }
+        return typefaceNameList;
+    }
 
     static void addITypefaceFetch(ITypefaceFetch iTypefaceFetch) {
         mITypefaceFetch.add(iTypefaceFetch);
