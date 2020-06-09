@@ -1,5 +1,6 @@
 package com.birdguan.smartgallery.base;
 
+import com.birdguan.smartgallery.impl.BaseMyConsumer;
 import com.facebook.imagepipeline.producers.BaseConsumer;
 
 /**
@@ -8,9 +9,9 @@ import com.facebook.imagepipeline.producers.BaseConsumer;
  */
 public interface Chain<T, M> {
     void init(T startParam);
-    M runStart(BaseConsumer... consumers);
-    M runNext(BaseConsumer consumer);
-    M runNow(BaseConsumer consumer);
+    M runStart(BaseMyConsumer... consumers);
+    M runNext(BaseMyConsumer consumer);
+    M runNow(BaseMyConsumer consumer);
     M undo();
     M redo();
     void destroy();

@@ -77,7 +77,12 @@ public class SystemImageUriFetch implements IImageUriFetch {
                 imageInfoList == null ? 0 : imageInfoList.size());
     }
 
-
+    @Override
+    public List<String> getRangeImageUriListFromTag(Object tag, int start, int end) {
+        List<ImageInfo> imageInfoList = mImageInfoMap.get(tag);
+        MyLog.d(TAG, "getRangeImageUriListFromTag", "状态:tag:start:end:", "根据tag获取部分uri" , tag , start , end);
+        return getRangeImageUriListFromList(imageInfoList, start, end);
+    }
 
     @Override
     public List<Object> getAllTag() {

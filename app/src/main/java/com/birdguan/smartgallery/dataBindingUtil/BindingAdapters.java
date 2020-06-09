@@ -11,10 +11,36 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import androidx.databinding.BindingAdapter;
+import androidx.databinding.BindingConversion;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.birdguan.smartgallery.base.ITypefaceFetch;
 import com.birdguan.smartgallery.base.util.MyLog;
+import com.birdguan.smartgallery.base.util.MyUtil;
+import com.birdguan.smartgallery.mete.ColorPickerView;
+import com.birdguan.smartgallery.mete.CutView;
+import com.birdguan.smartgallery.mete.MoveFrameLayout;
+import com.birdguan.smartgallery.pictureProcessing.filteraction.AIFilterAction;
+import com.birdguan.smartgallery.pictureProcessing.filteraction.FilterAction;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.backends.pipeline.PipelineDraweeController;
+import com.facebook.drawee.interfaces.DraweeController;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.common.ResizeOptions;
+import com.facebook.imagepipeline.request.BasePostprocessor;
+import com.facebook.imagepipeline.request.ImageRequest;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import com.facebook.imagepipeline.request.Postprocessor;
+
+import org.opencv.android.Utils;
+import org.opencv.core.Mat;
+import org.opencv.imgcodecs.Imgcodecs;
 
 import java.util.List;
+
+import static com.birdguan.smartgallery.mete.CutView.CUT_MODEL;
+import static com.birdguan.smartgallery.mete.CutView.INSERT_IMAGE_MODEL;
+import static com.birdguan.smartgallery.mete.CutView.INSERT_TEXT_MODEL;
 
 /**
  * @Author: birdguan

@@ -19,7 +19,7 @@ public class BindingUtils {
     private static final String TAG = "SmartGallery: BindingAdapters";
 
     /**
-     * Helper to throw an exception when {@link android.databinding.ViewDataBinding#setVariable(int,
+     * Helper to throw an exception when {@link androidx.databinding.ViewDataBinding#setVariable(int,
      * Object)} returns false.
      */
     public static void throwMissingVariable(ViewDataBinding binding, int bindingVariable, @LayoutRes int layoutRes) {

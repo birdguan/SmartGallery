@@ -22,8 +22,8 @@ import static com.birdguan.smartgallery.staticParam.ObserverMapKey.PictureItemMa
  * @Author: birdguan
  * @Date: 2020/6/8 21:25
  */
-public class PictureItemManagerVM extends ItemManagerBaseVM<PictureItemManagerVM> {
-    private static final String TAG = "SmartGalley: PictureItemManagerVM"
+public class PictureItemManagerVM extends ItemManagerBaseVM<PictureItemManagerVM.PictureItemVM> {
+    private static final String TAG = "SmartGalley: PictureItemManagerVM";
     public static final int ITEM_PICTURE_RESIZE_WIDTH = 100;
     public static final int ITEM_PICTURE_RESIZE_HEIGHT = 100;
     public static final int MENU_ITEM_WIDTH = MyUtil.getDisplayWidthDp() / 3 - MyUtil.px2dip(10);
@@ -44,7 +44,7 @@ public class PictureItemManagerVM extends ItemManagerBaseVM<PictureItemManagerVM
     }
 
     public void freshPictureList(String directoryName) {
-        freshPictureList(mIImageUriFetch.getALlImageUriListFromTag(directoryName));
+        freshPictureList(mIImageUriFetch.getAllImageUriListFromTag(directoryName));
     }
 
     private void freshPictureList(List<String> imageUriList) {

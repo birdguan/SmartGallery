@@ -10,6 +10,7 @@ public interface IImageUriFetch {
     List<String> getAllImageUriList();
     List<String> getRangeImageUriList(int start, int end);
     List<String> getAllImageUriListFromTag(Object tag);
+    List<String> getRangeImageUriListFromTag(Object tag , int start , int end);
     List<Object> getAllTag();
     void freshImageInfo();
 }

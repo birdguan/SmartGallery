@@ -3,7 +3,7 @@ package com.birdguan.smartgallery.impl;
 import android.graphics.Bitmap;
 
 import com.birdguan.smartgallery.SmartGalleryApplication;
-import com.birdguan.smartgallery.base.IAllImageFetch;
+import com.birdguan.smartgallery.base.IAlImageFetch;
 import com.birdguan.smartgallery.base.util.MyLog;
 
 import org.opencv.android.Utils;
@@ -20,7 +20,7 @@ import static org.opencv.core.CvType.CV_8U;
  * @Date: 2020/6/4 10:30
  * @Description 快速风格迁移
  */
-public class BaseRapidStyleMigrationAIImageFetch implements IAllImageFetch {
+public class BaseRapidStyleMigrationAIImageFetch implements IAlImageFetch {
     private static final String TAG = "SmartGallery: BaseRapidStyleMigrationAllImageFetch";
 
     private String mModelFile = "file:///android_assert/starry.pb";

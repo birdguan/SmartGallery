@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="viewModel" type="com.birdguan.smartgallery.viewModel.itemManagerVM.PictureItemManagerVM.PictureItemVM"/>
+        <import type="com.birdguan.smartgallery.viewModel.itemManagerVM.PictureItemManagerVM"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/item_image_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="@{() -> viewModel.mUIActionManager.doClick(PictureItemManagerVM.CLICK_ITEM)}"
+            bind:imageUri="@{viewModel.mImageUri}"
+            bind:resizeHeight="@{PictureItemManagerVM.ITEM_PICTURE_RESIZE_HEIGHT}"
+            bind:resizeWidth="@{PictureItemManagerVM.ITEM_PICTURE_RESIZE_WIDTH}"
+            fresco:actualImageScaleType="centerCrop" />
+
+    </FrameLayout>
+
+</layout>

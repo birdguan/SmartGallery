@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="viewModel" type="com.birdguan.smartgallery.base.BaseSeekBarRecycleViewVM"/>
+        <variable name="bindingVisibility" type="java.lang.Integer"/>
+
+        <import type="com.birdguan.smartgallery.dataBindingUtil.LayoutManager"/>
+        <import type="com.birdguan.smartgallery.dataBindingUtil.ItemDecoration"/>
+        <import type="android.view.View"/>
+        <import type="com.birdguan.smartgallery.base.BaseSeekBarRecycleViewVM"/>
+
+    </data>
+
+    <LinearLayout
+        android:visibility="@{bindingVisibility}"
+        bind:bindingBottomPadding="@{BaseSeekBarRecycleViewVM.MENU_PADDING}"
+        bind:bindingHeight="@{BaseSeekBarRecycleViewVM.MENU_HEIGHT}"
+        bind:bindingWidth="@{BaseSeekBarRecycleViewVM.MENU_WIDTH}"
+
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            bind:bindingHeight="@{BaseSeekBarRecycleViewVM.SEEK_BAR_HEIGHT}"
+            bind:progressMax="@{BaseSeekBarRecycleViewVM.PROGRESS_MAX}"
+            android:onProgressChanged="@{(seekBar, progress, fromUser) -> viewModel.mUIActionManager.doProgressChanged(BaseSeekBarRecycleViewVM.PROGRESS_CHANGE , progress)}"
+            android:progress="@{viewModel.mSelectParam}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/picture_recycle_view"
+
+            bind:bindingHeight="@{BaseSeekBarRecycleViewVM.MENU_ITEM_HEIGHT}"
+            bind:bindingWidth="@{BaseSeekBarRecycleViewVM.MENU_WIDTH}"
+            bind:itemWidth="@{BaseSeekBarRecycleViewVM.MENU_ITEM_HEIGHT}"
+            bind:itemHeight="@{BaseSeekBarRecycleViewVM.MENU_ITEM_WIDTH}"
+
+            bind:selectPosition="@{viewModel.mSelectedPosition}"
+            bind:layoutManager="@{LayoutManager.linearH()}"
+            bind:itemDecor="@{ItemDecoration.defaultItemDecoration()}"
+            bind:itemView="@{viewModel.mViewSelector}"
+            bind:items="@{viewModel.mDataItemList}">
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </LinearLayout>
+
+</layout>

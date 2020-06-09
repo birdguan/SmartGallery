@@ -20,7 +20,7 @@ extern int cvAdd4cMat_q(cv::Mat &dst, cv::Mat &scr, double scale);
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_example_whensunset_pictureprocessinggraduationdesign_pictureProcessing_CutMyConsumer_cut(
+Java_com_birdguan_smartgallery_pictureProcessing_CutMyConsumer_cut(
         JNIEnv *env, jobject instance, jlong in_mat_addr, jlong out_mat_addr, jint x, jint y,
         jint width, jint height) {
 
@@ -33,7 +33,7 @@ Java_com_example_whensunset_pictureprocessinggraduationdesign_pictureProcessing_
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_example_whensunset_pictureprocessinggraduationdesign_pictureProcessing_FlipMyConsumer_flip(
+Java_com_birdguan_smartgallery_pictureProcessing_FlipMyConsumer_flip(
         JNIEnv *env, jclass type, jlong src_nativeObj, jlong dst_nativeObj, jint flipCode) {
     Mat& oldMat = *(Mat *) src_nativeObj;
     Mat& newMat = *(Mat *) dst_nativeObj;
@@ -44,7 +44,7 @@ Java_com_example_whensunset_pictureprocessinggraduationdesign_pictureProcessing_
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_example_whensunset_pictureprocessinggraduationdesign_pictureProcessing_RotateMyConsumer_rotate(
+Java_com_birdguan_smartgallery_pictureProcessing_RotateMyConsumer_rotate(
         JNIEnv *env, jobject instance, jlong in_mat_addr, jlong out_mat_addr, jdouble angle,
         jdouble scale) {
 
@@ -65,7 +65,7 @@ Java_com_example_whensunset_pictureprocessinggraduationdesign_pictureProcessing_
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_example_whensunset_pictureprocessinggraduationdesign_pictureProcessing_WhiteBalanceMyConsumer_whiteBalance(
+Java_com_birdguan_smartgallery_pictureProcessing_WhiteBalanceMyConsumer_whiteBalance(
         JNIEnv *env, jobject instance, jlong in_mat_addr, jlong out_mat_addr) {
 
     Mat& oldMat = *(Mat *) in_mat_addr;
@@ -99,7 +99,7 @@ Java_com_example_whensunset_pictureprocessinggraduationdesign_pictureProcessing_
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_example_whensunset_pictureprocessinggraduationdesign_pictureProcessing_PictureParamMyConsumer_pictureParamChange(
+Java_com_birdguan_smartgallery_pictureProcessing_PictureParamMyConsumer_pictureParamChange(
         JNIEnv *env, jobject instance, jlong in_mat_addr, jlong out_mat_addr, jint brightness,
         jint contrast, jint saturation, jint tonal) {
     Mat& oldMat = *(Mat *) in_mat_addr;
@@ -112,7 +112,7 @@ Java_com_example_whensunset_pictureprocessinggraduationdesign_pictureProcessing_
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_example_whensunset_pictureprocessinggraduationdesign_pictureProcessing_PictureFrameMyConsumer_mixed(
+Java_com_birdguan_smartgallery_pictureProcessing_PictureFrameMyConsumer_mixed(
         JNIEnv *env, jobject instance, jlong in_mat_addr, jlong insert_mat_addr , jlong out_mat_addr , jint x, jint y,
         jint width, jint height , jfloat alph) {
     Mat& oldMat = *(Mat *) in_mat_addr;
@@ -420,7 +420,7 @@ void comicBooksFilter(Mat& in, Mat& out){
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_example_whensunset_pictureprocessinggraduationdesign_pictureProcessing_filteraction_ReliefFilterAction_filterRelief(
+Java_com_birdguan_smartgallery_pictureProcessing_filteraction_ReliefFilterAction_filterRelief(
         JNIEnv *env, jobject instance, jlong in, jlong out) {
 
     Mat& oldMat = *(Mat *) in;
@@ -430,14 +430,14 @@ Java_com_example_whensunset_pictureprocessinggraduationdesign_pictureProcessing_
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_example_whensunset_pictureprocessinggraduationdesign_pictureProcessing_filteraction_CarvingFilterAction_filterCarving(
+Java_com_birdguan_smartgallery_pictureProcessing_filteraction_CarvingFilterAction_filterCarving(
         JNIEnv *env, jobject instance, jlong in, jlong out) {
     Mat& oldMat = *(Mat *) in;
     Mat& newMat = *(Mat *) out;
     carvingFilter(oldMat , newMat);
 }extern "C"
 JNIEXPORT void JNICALL
-Java_com_example_whensunset_pictureprocessinggraduationdesign_pictureProcessing_filteraction_NostalgiaFilterAction_filterNostalgia(
+Java_com_birdguan_smartgallery_pictureProcessing_filteraction_NostalgiaFilterAction_filterNostalgia(
         JNIEnv *env, jobject instance, jlong in, jlong out) {
 
     Mat& oldMat = *(Mat *) in;
@@ -445,78 +445,10 @@ Java_com_example_whensunset_pictureprocessinggraduationdesign_pictureProcessing_
     nostalgiaFilter(oldMat , newMat);
 }extern "C"
 JNIEXPORT void JNICALL
-Java_com_example_whensunset_pictureprocessinggraduationdesign_pictureProcessing_filteraction_ComicBooksFilterAction_filterComicBooks(
+Java_com_birdguan_smartgallery_pictureProcessing_filteraction_ComicBooksFilterAction_filterComicBooks(
         JNIEnv *env, jobject instance, jlong in, jlong out) {
 
     Mat& oldMat = *(Mat *) in;
     Mat& newMat = *(Mat *) out;
     comicBooksFilter(oldMat , newMat);
-}extern "C"
-JNIEXPORT void JNICALL
-Java_com_birdguan_smartgallery_pictureProcessing_CutMyConsumer_cut(JNIEnv *env, jobject thiz,
-                                                                   jlong in_mat_addr,
-                                                                   jlong out_mat_addr, jint x,
-                                                                   jint y, jint width,
-                                                                   jint height) {
-    // TODO: implement cut()
-}extern "C"
-JNIEXPORT void JNICALL
-Java_com_birdguan_smartgallery_pictureProcessing_PictureFrameMyConsumer_mixed(JNIEnv *env,
-                                                                              jobject thiz,
-                                                                              jlong in_mat_addr,
-                                                                              jlong insert_mat_addr,
-                                                                              jlong out_mat_addr,
-                                                                              jint x, jint y,
-                                                                              jint width,
-                                                                              jint height,
-                                                                              jfloat alph) {
-    // TODO: implement mixed()
-}extern "C"
-JNIEXPORT void JNICALL
-Java_com_birdguan_smartgallery_pictureProcessing_PictureParamMyConsumer_pictureParamChange(
-        JNIEnv *env, jobject thiz, jlong in_mat_addr, jlong out_mat_addr, jint brightness,
-        jint contrast, jint saturation, jint tonal) {
-    // TODO: implement pictureParamChange()
-}extern "C"
-JNIEXPORT void JNICALL
-Java_com_birdguan_smartgallery_pictureProcessing_WhiteBalanceMyConsumer_whiteBalance(JNIEnv *env,
-                                                                                     jobject thiz,
-                                                                                     jlong in_mat_addr,
-                                                                                     jlong out_mat_addr) {
-    // TODO: implement whiteBalance()
-}extern "C"
-JNIEXPORT void JNICALL
-Java_com_birdguan_smartgallery_pictureProcessing_RotateMyConsumer_rotate(JNIEnv *env, jobject thiz,
-                                                                         jlong in_mat_addr,
-                                                                         jlong out_mat_addr,
-                                                                         jdouble angle,
-                                                                         jdouble scale) {
-    // TODO: implement rotate()
-}extern "C"
-JNIEXPORT void JNICALL
-Java_com_birdguan_smartgallery_pictureProcessing_FlipMyConsumer_flip(JNIEnv *env, jclass clazz,
-                                                                     jlong src_native_obj,
-                                                                     jlong dst_native_obj,
-                                                                     jint flip_code) {
-    // TODO: implement flip()
-}extern "C"
-JNIEXPORT void JNICALL
-Java_com_birdguan_smartgallery_pictureProcessing_filteraction_CarvingFilterAction_filterCarving(
-        JNIEnv *env, jobject thiz, jlong in, jlong out) {
-    // TODO: implement filterCarving()
-}extern "C"
-JNIEXPORT void JNICALL
-Java_com_birdguan_smartgallery_pictureProcessing_filteraction_ComicBooksFilterAction_filterComicBooks(
-        JNIEnv *env, jobject thiz, jlong in, jlong out) {
-    // TODO: implement filterComicBooks()
-}extern "C"
-JNIEXPORT void JNICALL
-Java_com_birdguan_smartgallery_pictureProcessing_filteraction_NostalgiaFilterAction_filterNostalgia(
-        JNIEnv *env, jobject thiz, jlong in, jlong out) {
-    // TODO: implement filterNostalgia()
-}extern "C"
-JNIEXPORT void JNICALL
-Java_com_birdguan_smartgallery_pictureProcessing_filteraction_ReliefFilterAction_filterRelief(
-        JNIEnv *env, jobject thiz, jlong in, jlong out) {
-    // TODO: implement filterRelief()
 }

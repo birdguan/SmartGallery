@@ -2,6 +2,7 @@ package com.birdguan.smartgallery.pictureProcessing;
 
 import com.birdguan.smartgallery.base.util.MyLog;
 import com.birdguan.smartgallery.impl.BaseMyConsumer;
+import com.birdguan.smartgallery.pictureProcessing.filteraction.AIFilterAction;
 import com.birdguan.smartgallery.pictureProcessing.filteraction.FilterAction;
 
 import org.opencv.core.Mat;
@@ -69,7 +70,7 @@ public class PictureFilterMyConsumer extends BaseMyConsumer {
     }
 
     @Override
-    protected Mat onNewResultImpl(Mat oldResult) {
+    public Mat onNewResultImpl(Mat oldResult) {
         MyLog.d(TAG, "onNewResultImpl", "状态:oldResult:", "运行", oldResult);
 
         if (oldResult == null) {
@@ -82,12 +83,12 @@ public class PictureFilterMyConsumer extends BaseMyConsumer {
     }
 
     @Override
-    protected void onFailureImpl(Throwable t) {
+    public void onFailureImpl(Throwable t) {
 
     }
 
     @Override
-    protected void onCancellationImpl() {
+    public void onCancellationImpl() {
 
     }
 

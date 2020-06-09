@@ -13,7 +13,7 @@ using namespace cv;
 
 extern "C"
 
-JNIEXPORT jintArray JNICALL Java_com_example_opencvlibrary_MyClass_gray(
+JNIEXPORT jintArray JNICALL Java_com_birdguan_opencvlibrary_MyClass_gray(
         JNIEnv *env, jclass obj, jintArray buf, int w, int h) {
 
     jint *cbuf;

@@ -3,11 +3,14 @@ package com.birdguan.smartgallery.viewModel.includeLayoutVM;
 import androidx.databinding.ObservableField;
 
 import com.birdguan.smartgallery.base.uiaction.ClickUIAction;
+import com.birdguan.smartgallery.base.uiaction.ProgressChangedUIAction;
 import com.birdguan.smartgallery.base.uiaction.UIActionManager;
 import com.birdguan.smartgallery.base.util.MyLog;
 import com.birdguan.smartgallery.base.util.MyUtil;
+import com.birdguan.smartgallery.base.util.ObserverParamMap;
 import com.birdguan.smartgallery.base.viewmodel.ChildBaseVM;
 import com.birdguan.smartgallery.impl.BaseMyConsumer;
+import com.birdguan.smartgallery.pictureProcessing.PictureParamMyConsumer;
 import com.birdguan.smartgallery.pictureProcessing.StringConsumerChain;
 
 import org.opencv.core.Mat;
@@ -19,6 +22,7 @@ import io.reactivex.Flowable;
 
 import static com.birdguan.smartgallery.base.uiaction.UIActionManager.CLICK_ACTION;
 import static com.birdguan.smartgallery.base.uiaction.UIActionManager.PROGRESS_CHANGED_ACTION;
+import static com.birdguan.smartgallery.staticParam.ObserverMapKey.PictureParamMenuVM_mat;
 
 /**
  * @Author: birdguan

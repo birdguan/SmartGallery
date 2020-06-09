@@ -4,6 +4,7 @@ import com.birdguan.smartgallery.base.uiaction.ItemSelectedUIAction;
 import com.birdguan.smartgallery.base.uiaction.UIActionManager;
 import com.birdguan.smartgallery.base.util.MyLog;
 import com.birdguan.smartgallery.base.util.ObserverParamMap;
+import com.birdguan.smartgallery.base.viewmodel.ItemBaseVM;
 import com.birdguan.smartgallery.base.viewmodel.ItemManagerBaseVM;
 import com.birdguan.smartgallery.impl.SystemImageUriFetch;
 

@@ -101,7 +101,7 @@ public class PictureParamMyConsumer extends BaseMyConsumer {
     }
 
     @Override
-    protected Mat onNewResultImpl(Mat oldResult) {
+    public Mat onNewResultImpl(Mat oldResult) {
         MyLog.d(TAG, "onNewResultImpl", "状态:oldResult:", "运行", oldResult);
 
         if (oldResult == null) {
@@ -121,12 +121,12 @@ public class PictureParamMyConsumer extends BaseMyConsumer {
     }
 
     @Override
-    protected void onFailureImpl(Throwable t) {
+    public void onFailureImpl(Throwable t) {
 
     }
 
     @Override
-    protected void onCancellationImpl() {
+    public void onCancellationImpl() {
 
     }
 

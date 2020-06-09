@@ -64,7 +64,7 @@ public abstract class ConsumerChain<T> implements Chain<T, Mat> {
         mPreviousMat = null;
         mNowMat = mFirstMat;
         isInited = true;
-        nowRect = new Rect(0, 0, mFirstMat.width(), mFirstMat.height());
+        MyLog.d(TAG, "getBaseVM", "状态:startParam:", "初始化" , startParam);
     }
 
     /**
@@ -72,6 +72,7 @@ public abstract class ConsumerChain<T> implements Chain<T, Mat> {
      * @param consumers
      * @return
      */
+    @Override
     public Mat runStart(@NotNull BaseMyConsumer... consumers) {
         MyLog.d(TAG, "runStart", "状态:consumers:",
                 "开始运行", Arrays.toString(consumers));

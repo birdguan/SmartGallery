@@ -57,7 +57,7 @@ public class StringConsumerChain extends ConsumerChain<String> {
         Rect rect = new Rect(0 , 0 , imageInfo[0] , imageInfo[1]);
         BaseMyConsumer firstCutMyConsumer = new CutMyConsumer(rect) {
             @Override
-            protected Mat onNewResultImpl(Mat oldResult) {
+            public Mat onNewResultImpl(Mat oldResult) {
                 return firstMatBGR;
             }
         };

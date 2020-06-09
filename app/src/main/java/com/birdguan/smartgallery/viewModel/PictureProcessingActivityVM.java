@@ -5,14 +5,28 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 
+import androidx.core.content.FileProvider;
 import androidx.databinding.ObservableField;
 
+import com.birdguan.smartgallery.SmartGalleryApplication;
 import com.birdguan.smartgallery.base.BaseSeekBarRecycleViewVM;
+import com.birdguan.smartgallery.base.uiaction.ClickUIAction;
+import com.birdguan.smartgallery.base.uiaction.UIActionManager;
+import com.birdguan.smartgallery.base.util.MyLog;
+import com.birdguan.smartgallery.base.util.MyUtil;
+import com.birdguan.smartgallery.base.util.ObserverParamMap;
 import com.birdguan.smartgallery.base.viewmodel.ChildBaseVM;
+import com.birdguan.smartgallery.base.viewmodel.ItemManagerBaseVM;
+import com.birdguan.smartgallery.base.viewmodel.ParentBaseVM;
 import com.birdguan.smartgallery.impl.BaseMyConsumer;
 import com.birdguan.smartgallery.mete.CutView;
 import com.birdguan.smartgallery.pictureProcessing.StringConsumerChain;
+import com.birdguan.smartgallery.staticParam.StaticParam;
+import com.birdguan.smartgallery.viewModel.includeLayoutVM.PictureFilterMenuVM;
+import com.birdguan.smartgallery.viewModel.includeLayoutVM.PictureFrameMenuVM;
 import com.birdguan.smartgallery.viewModel.includeLayoutVM.PictureParamMenuVM;
+import com.birdguan.smartgallery.viewModel.includeLayoutVM.PictureTextMenuVM;
+import com.birdguan.smartgallery.viewModel.includeLayoutVM.PictureTransformMenuVM;
 
 import org.opencv.android.Utils;
 import org.opencv.core.Mat;
@@ -23,14 +37,40 @@ import io.reactivex.Flowable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
+import static com.birdguan.smartgallery.base.BaseSeekBarRecycleViewVM.LEAVE_BSBRV_VM_LISTENER;
+import static com.birdguan.smartgallery.base.uiaction.UIActionManager.CLICK_ACTION;
+import static com.birdguan.smartgallery.base.viewmodel.ItemManagerBaseVM.CLICK_ITEM;
+import static com.birdguan.smartgallery.mete.CutView.CUT_MODEL;
+import static com.birdguan.smartgallery.mete.CutView.INSERT_IMAGE_MODEL;
+import static com.birdguan.smartgallery.mete.CutView.INSERT_TEXT_MODEL;
 import static com.birdguan.smartgallery.mete.CutView.SCALE_MODEL;
+import static com.birdguan.smartgallery.staticParam.ObserverMapKey.PictureFilterItemVM_mat;
+import static com.birdguan.smartgallery.staticParam.ObserverMapKey.PictureFrameItemVM_mat;
+import static com.birdguan.smartgallery.staticParam.ObserverMapKey.PictureParamMenuVM_mat;
+import static com.birdguan.smartgallery.staticParam.ObserverMapKey.PictureProcessingActivityVM_intent;
+import static com.birdguan.smartgallery.staticParam.ObserverMapKey.PictureTextItemVM_mat;
+import static com.birdguan.smartgallery.staticParam.ObserverMapKey.PictureTransformMenuVM_mat;
+import static com.birdguan.smartgallery.staticParam.ObserverMapKey.PictureTransformMenuVM_position;
 import static com.birdguan.smartgallery.staticParam.StaticParam.LOADING_GIF;
+import static com.birdguan.smartgallery.staticParam.StaticParam.SHARE_IMAGE;
+import static com.birdguan.smartgallery.viewModel.includeLayoutVM.PictureParamMenuVM.PARAM_PROGRESS_CHANGE;
+import static com.birdguan.smartgallery.viewModel.includeLayoutVM.PictureParamMenuVM.SELECT_BRIGHTNESS;
+import static com.birdguan.smartgallery.viewModel.includeLayoutVM.PictureParamMenuVM.SELECT_CONTRAST;
+import static com.birdguan.smartgallery.viewModel.includeLayoutVM.PictureParamMenuVM.SELECT_SATURATION;
+import static com.birdguan.smartgallery.viewModel.includeLayoutVM.PictureParamMenuVM.SELECT_TONAL;
+import static com.birdguan.smartgallery.viewModel.includeLayoutVM.PictureTextMenuVM.TEXT_CHANGE;
+import static com.birdguan.smartgallery.viewModel.includeLayoutVM.PictureTransformMenuVM.LEAVE_TRANSFORM_LISTENER;
+import static com.birdguan.smartgallery.viewModel.includeLayoutVM.PictureTransformMenuVM.SELECT_PICTURE_CUT;
+import static com.birdguan.smartgallery.viewModel.includeLayoutVM.PictureTransformMenuVM.SELECT_PICTURE_HORIZONTAL_FLIP;
+import static com.birdguan.smartgallery.viewModel.includeLayoutVM.PictureTransformMenuVM.SELECT_PICTURE_ROTATE;
+import static com.birdguan.smartgallery.viewModel.includeLayoutVM.PictureTransformMenuVM.SELECT_PICTURE_VERTICAL_FLIP;
+import static com.birdguan.smartgallery.viewModel.includeLayoutVM.PictureTransformMenuVM.SELECT_PICTURE_WHITE_BALANCE;
 
 /**
  * @Author: birdguan
  * @Date: 2020/6/8 21:43
  */
-public class PictureProcessingActivityVM extends ChildBaseVM {
+public class PictureProcessingActivityVM extends ParentBaseVM {
     private static final String TAG = "SmartGallery: PictureProcessingActivityVM";
 
     public static final int SELECT_PICTURE_FILTER = 0;
@@ -321,7 +361,7 @@ public class PictureProcessingActivityVM extends ChildBaseVM {
         File imageFile = new File(SHARE_IMAGE);
         Uri data;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            data = FileProvider.getUriForFile(PictureProcessingApplication.getAppContext() , "com.example.whensunset.pictureprocessinggraduationdesign.fileprovider", imageFile);
+            data = FileProvider.getUriForFile(SmartGalleryApplication.getAppContext() , "com.birdguan.smartgallery.fileprovider", imageFile);
             // 给目标应用一个临时授权
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         } else {

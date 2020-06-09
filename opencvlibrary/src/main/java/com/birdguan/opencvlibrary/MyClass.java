@@ -1,10 +1,9 @@
-package com.example.opencvlibrary;
+package com.birdguan.opencvlibrary;
 
 /**
- * Created by whensunset on 2018/2/28.
+ * @Author: birdguan
+ * @Date: 2020/6/9 14:37
  */
-
 public class MyClass {
-
     public static native int[] gray(int[] i , int w, int h);
 }
