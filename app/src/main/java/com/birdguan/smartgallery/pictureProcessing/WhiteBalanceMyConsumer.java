@@ -9,7 +9,7 @@ import org.opencv.core.Mat;
  * @Author: birdguan
  * @Date: 2020/6/8 21:41
  */
-public class WhiteBanlanceMyConsumer extends BaseMyConsumer {
+public class WhiteBalanceMyConsumer extends BaseMyConsumer {
     private static String TAG = "SmartGallery: WhiteBalanceMyConsumer";
 
     @Override

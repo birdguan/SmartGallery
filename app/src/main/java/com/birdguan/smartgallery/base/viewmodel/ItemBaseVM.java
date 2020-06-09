@@ -60,4 +60,8 @@ public abstract class ItemBaseVM extends ChildBaseVM{
     protected ObserverParamMap gerPositionParamMap() {
         return ObserverParamMap.staticSet(ItemBaseVM_mPosition, mPosition);
     }
+
+    protected ObserverParamMap getPositionParamMap() {
+        return ObserverParamMap.staticSet(ItemBaseVM_mPosition , mPosition);
+    }
 }

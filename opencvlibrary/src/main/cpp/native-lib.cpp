@@ -479,10 +479,10 @@ Java_com_birdguan_smartgallery_pictureProcessing_PictureParamMyConsumer_pictureP
     // TODO: implement pictureParamChange()
 }extern "C"
 JNIEXPORT void JNICALL
-Java_com_birdguan_smartgallery_pictureProcessing_WhiteBanlanceMyConsumer_whiteBalance(JNIEnv *env,
-                                                                                      jobject thiz,
-                                                                                      jlong in_mat_addr,
-                                                                                      jlong out_mat_addr) {
+Java_com_birdguan_smartgallery_pictureProcessing_WhiteBalanceMyConsumer_whiteBalance(JNIEnv *env,
+                                                                                     jobject thiz,
+                                                                                     jlong in_mat_addr,
+                                                                                     jlong out_mat_addr) {
     // TODO: implement whiteBalance()
 }extern "C"
 JNIEXPORT void JNICALL
@@ -499,4 +499,24 @@ Java_com_birdguan_smartgallery_pictureProcessing_FlipMyConsumer_flip(JNIEnv *env
                                                                      jlong dst_native_obj,
                                                                      jint flip_code) {
     // TODO: implement flip()
+}extern "C"
+JNIEXPORT void JNICALL
+Java_com_birdguan_smartgallery_pictureProcessing_filteraction_CarvingFilterAction_filterCarving(
+        JNIEnv *env, jobject thiz, jlong in, jlong out) {
+    // TODO: implement filterCarving()
+}extern "C"
+JNIEXPORT void JNICALL
+Java_com_birdguan_smartgallery_pictureProcessing_filteraction_ComicBooksFilterAction_filterComicBooks(
+        JNIEnv *env, jobject thiz, jlong in, jlong out) {
+    // TODO: implement filterComicBooks()
+}extern "C"
+JNIEXPORT void JNICALL
+Java_com_birdguan_smartgallery_pictureProcessing_filteraction_NostalgiaFilterAction_filterNostalgia(
+        JNIEnv *env, jobject thiz, jlong in, jlong out) {
+    // TODO: implement filterNostalgia()
+}extern "C"
+JNIEXPORT void JNICALL
+Java_com_birdguan_smartgallery_pictureProcessing_filteraction_ReliefFilterAction_filterRelief(
+        JNIEnv *env, jobject thiz, jlong in, jlong out) {
+    // TODO: implement filterRelief()
 }

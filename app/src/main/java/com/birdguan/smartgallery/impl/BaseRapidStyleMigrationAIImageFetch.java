@@ -20,7 +20,7 @@ import static org.opencv.core.CvType.CV_8U;
  * @Date: 2020/6/4 10:30
  * @Description 快速风格迁移
  */
-public class BaseRapidStyleMigrationAllImageFetch implements IAllImageFetch {
+public class BaseRapidStyleMigrationAIImageFetch implements IAllImageFetch {
     private static final String TAG = "SmartGallery: BaseRapidStyleMigrationAllImageFetch";
 
     private String mModelFile = "file:///android_assert/starry.pb";
@@ -37,15 +37,15 @@ public class BaseRapidStyleMigrationAllImageFetch implements IAllImageFetch {
     private int mOutWidth = 780;
     private int mOutHeight = 580;
 
-    public BaseRapidStyleMigrationAllImageFetch() {
+    public BaseRapidStyleMigrationAIImageFetch() {
         init();
     }
 
-    public BaseRapidStyleMigrationAllImageFetch(String mModelFile) {
+    public BaseRapidStyleMigrationAIImageFetch(String mModelFile) {
         this.mModelFile = mModelFile;
     }
 
-    public BaseRapidStyleMigrationAllImageFetch(String mModelFile, String mInputNode, String mOutputNode) {
+    public BaseRapidStyleMigrationAIImageFetch(String mModelFile, String mInputNode, String mOutputNode) {
         this.mModelFile = mModelFile;
         this.mInputNode = mInputNode;
         this.mOutputNode = mOutputNode;

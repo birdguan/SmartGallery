@@ -79,7 +79,7 @@ public class ColorPickerView extends AppCompatSeekBar {
         super.onDraw(canvas);
     }
 
-    private static int changeColorFromHexToRGB(int i) {
+    public static int changeColorFromHexToRGB(int i) {
         int color = 0x0;
         if (i <= 42) {
             if (i == 42) {
@@ -121,7 +121,7 @@ public class ColorPickerView extends AppCompatSeekBar {
         return color;
     }
 
-    private static int changeColorFromHexToRGBWB(int i) {
+    public static int changeColorFromHexToRGBWB(int i) {
         return 0xFF000000 + 0x00010000 * i + 0x00000100 * i + i;
     }
 }

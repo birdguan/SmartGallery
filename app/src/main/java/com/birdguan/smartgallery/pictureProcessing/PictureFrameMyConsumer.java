@@ -89,7 +89,7 @@ public class PictureFrameMyConsumer extends BaseMyConsumer {
     }
 
     @Override
-    protected Mat onNewResultImpl(Mat oldResult) {
+    public Mat onNewResultImpl(Mat oldResult) {
         MyLog.d(TAG, "onNewResultImpl", "状态:oldResult:", "运行", oldResult);
 
         if (oldResult == null) {
@@ -116,12 +116,12 @@ public class PictureFrameMyConsumer extends BaseMyConsumer {
     private native void mixed(long in_mat_addr , long insert_mat_addr , long out_mat_addr , int x , int y , int width , int height , float alph);
 
     @Override
-    protected void onFailureImpl(Throwable t) {
+    public void onFailureImpl(Throwable t) {
 
     }
 
     @Override
-    protected void onCancellationImpl() {
+    public void onCancellationImpl() {
 
     }
 }
