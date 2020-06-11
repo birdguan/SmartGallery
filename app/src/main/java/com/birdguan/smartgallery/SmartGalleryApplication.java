@@ -2,6 +2,7 @@ package com.birdguan.smartgallery;
 
 import android.app.Application;
 import android.content.Context;
+import android.util.Log;
 
 import com.birdguan.smartgallery.base.ITypefaceFetch;
 import com.birdguan.smartgallery.base.util.MyUtil;
@@ -34,7 +35,7 @@ import static com.birdguan.smartgallery.staticParam.StaticParam.PICTURE_FRAME_AD
 import static com.birdguan.smartgallery.staticParam.StaticParam.PICTURE_FRAME_ADD_IMAGE;
 
 public class SmartGalleryApplication extends Application {
-    private static final String TAG = "SmartGallery: SmartGalleryApplication";
+    private static final String TAG = "SmartGallery/SmartGalleryApplication";
 
     private static Context appContext;
 
@@ -49,7 +50,11 @@ public class SmartGalleryApplication extends Application {
 
         ITypefaceFetch.init();
         FilterAction.init();
+        Log.e("INIT", "FilterAction init completed");
         init();
+        Log.e("INIT", "init completed");
+
+
 
         File file = new File(MY_SHARE_DIRECTORY);
         if (!file.exists()) {

@@ -14,7 +14,7 @@ import java.util.List;
  * @Date: 2020/6/8 21:38
  */
 public class PictureParamMyConsumer extends BaseMyConsumer {
-    private static String TAG = "SmartGallery: PictureParamMyConsumer";
+    private static String TAG = "SmartGallery/PictureParamMyConsumer";
     public static final int DEFAULT_PARAM = 50;
 
     private final List<Integer> mParamList = new ArrayList<>();

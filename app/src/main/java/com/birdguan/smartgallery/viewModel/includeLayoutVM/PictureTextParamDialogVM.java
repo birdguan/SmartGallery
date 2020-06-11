@@ -17,7 +17,7 @@ import static com.birdguan.smartgallery.base.uiaction.UIActionManager.PROGRESS_C
  * @Date: 2020/6/9 10:03
  */
 public class PictureTextParamDialogVM extends ChildBaseVM {
-    private static final String TAG = "SmartGallery: PictureTextParamDialogVM";
+    private static final String TAG = "SmartGallery/PictureTextParamDialogVM";
 
     public static final int PICTURE_TEXT_THROTTLE_MILLISECONDS = 100;
     public static final int PROGRESS_MAX = 256;

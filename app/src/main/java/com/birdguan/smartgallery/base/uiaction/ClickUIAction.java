@@ -8,7 +8,7 @@ import com.birdguan.smartgallery.base.viewmodel.BaseVM;
  * @Date: 2020/5/25 14:39
  */
 public class ClickUIAction extends BaseUIAction {
-    private static final String TAG = "SmartGallery: ClickUIAction";
+    private static final String TAG = "SmartGallery/ClickUIAction";
     private  UIActionListener<ClickUIAction> mOnClickListener = null;
 
     @Override

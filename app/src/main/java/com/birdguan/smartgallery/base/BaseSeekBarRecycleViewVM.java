@@ -15,7 +15,7 @@ import static com.birdguan.smartgallery.base.uiaction.UIActionManager.PROGRESS_C
  * @Date: 2020/5/26 14:54
  */
 public abstract class BaseSeekBarRecycleViewVM <T extends ItemBaseVM> extends ItemManagerBaseVM<T> {
-    private static final String TAG = "SmartGallery: BaseSeekBarRecycleViewVM";
+    private static final String TAG = "SmartGallery/BaseSeekBarRecycleViewVM";
 
     public static final int LEAVE_BSBRV_VM_LISTENER = 1;
     public static final int PROGRESS_CHANGE = 2;

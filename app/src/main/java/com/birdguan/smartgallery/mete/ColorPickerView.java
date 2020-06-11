@@ -20,7 +20,7 @@ import com.birdguan.smartgallery.R;
  * @Date: 2020/6/8 20:46
  */
 public class ColorPickerView extends AppCompatSeekBar {
-    private static final String TAG = "SmartGallery: ColorPickerView";
+    private static final String TAG = "SmartGallery/ColorPickerView";
     private boolean isWB = false;
 
     public boolean isWB() {

@@ -42,7 +42,7 @@ public class MyUtil {
     }
 
     public static int getDisplayWidthDp() {
-        return MyUtil.px2dip(MyUtil.getDisplayWidthDp());
+        return MyUtil.px2dip(MyUtil.getDisplayWidth());
     }
 
     /**

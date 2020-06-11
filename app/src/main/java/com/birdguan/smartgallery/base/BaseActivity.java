@@ -25,7 +25,7 @@ import io.reactivex.functions.Function;
  * @Date: 2020/5/26 9:12
  */
 public abstract class BaseActivity extends AppCompatActivity {
-    private static final String TAG = "SmartGallery: BaseActivity";
+    private static final String TAG = "SmartGallery/BaseActivity";
 
     private Map<ObservableField, Observable.OnPropertyChangedCallback> mRegisteredViewModelFieldObserverMap
             = new HashMap<>();

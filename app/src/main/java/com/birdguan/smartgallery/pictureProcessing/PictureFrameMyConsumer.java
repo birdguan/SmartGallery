@@ -17,7 +17,7 @@ import static org.opencv.imgcodecs.Imgcodecs.CV_LOAD_IMAGE_UNCHANGED;
  * @Date: 2020/6/8 21:37
  */
 public class PictureFrameMyConsumer extends BaseMyConsumer {
-    private static String TAG = "SmartGallery: PictureFrameMyConsumer";
+    private static String TAG = "SmartGallery/PictureFrameMyConsumer";
     public static final int DEFAULT_ALPH = 100;
     public static final int MAX_ALPH = 100;
 

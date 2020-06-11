@@ -18,7 +18,7 @@ import com.birdguan.smartgallery.viewModel.includeLayoutVM.PictureTextParamDialo
  * @Date: 2020/6/9 10:01
  */
 public class PictureTextParamSelectDialog extends DialogFragment {
-    private static final String TAG = "SmartGallery: PictureTextParamSelectDialog";
+    private static final String TAG = "SmartGallery/PictureTextParamSelectDialog";
 
     private PictureTextParamDialogVM mPictureTextParamDialogVM;
     private ActivityPictureProcessingPictureTextParamDialogBinding mActivityPictureProcessingPictureTextParamDialogBinding;

@@ -12,7 +12,7 @@ import org.opencv.core.Mat;
  * @Date: 2020/6/8 21:36
  */
 public class PictureFilterMyConsumer extends BaseMyConsumer {
-    private static String TAG = "SmartGallery: PictureFilterMyConsumer";
+    private static String TAG = "SmartGallery/PictureFilterMyConsumer";
 
     private FilterAction mFilterAction;
 
@@ -66,11 +66,12 @@ public class PictureFilterMyConsumer extends BaseMyConsumer {
             MyLog.d(TAG, "canRunNow", "状态:", "传入的滤镜为null，不能runNow");
             return false;
         }
+
         return true;
     }
 
     @Override
-    public Mat onNewResultImpl(Mat oldResult) {
+    protected Mat onNewResultImpl(Mat oldResult) {
         MyLog.d(TAG, "onNewResultImpl", "状态:oldResult:", "运行", oldResult);
 
         if (oldResult == null) {
@@ -83,12 +84,12 @@ public class PictureFilterMyConsumer extends BaseMyConsumer {
     }
 
     @Override
-    public void onFailureImpl(Throwable t) {
+    protected void onFailureImpl(Throwable t) {
 
     }
 
     @Override
-    public void onCancellationImpl() {
+    protected void onCancellationImpl() {
 
     }
 

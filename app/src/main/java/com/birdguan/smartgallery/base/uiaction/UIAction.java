@@ -7,7 +7,7 @@ import com.birdguan.smartgallery.base.viewmodel.BaseVM;
  * @Date: 2020/5/25 14:21
  */
 public interface UIAction {
-    final String TAG = "SmartGallery: UIAction";
+    final String TAG = "SmartGallery/UIAction";
     boolean checkParams(Object[] params);
     interface UIActionListener<T> {
         void onUIActionChanged(T action);

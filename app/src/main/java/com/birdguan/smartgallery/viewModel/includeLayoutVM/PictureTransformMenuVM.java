@@ -25,7 +25,7 @@ import static com.birdguan.smartgallery.staticParam.ObserverMapKey.PictureTransf
  * @Date: 2020/6/9 10:16
  */
 public class PictureTransformMenuVM extends ChildBaseVM implements CutView.OnLimitRectChangedListener {
-    private static final String TAG = "何时夕:PictureTransformMenuVM";
+    private static final String TAG = "SmartGallery/PictureTransformMenuVM";
 
     public static final int MENU_PADDING = 10;
     public static final int MENU_ITEM_SIZE = 5;

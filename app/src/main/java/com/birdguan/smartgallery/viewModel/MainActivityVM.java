@@ -5,7 +5,7 @@ import com.birdguan.smartgallery.viewModel.itemManagerVM.DirectorySpinnerItemMan
 import com.birdguan.smartgallery.viewModel.itemManagerVM.PictureItemManagerVM;
 
 public class MainActivityVM extends ParentBaseVM {
-    private static final String TAG = "SmartGallery: MainActivityVM";
+    private static final String TAG = "SmartGallery/MainActivityVM";
 
     public static final int CHILD_VM_PictureItemManagerVM = 0;
     public static final int CHILD_VM_DirectorySpinnerItemManagerVM = 1;

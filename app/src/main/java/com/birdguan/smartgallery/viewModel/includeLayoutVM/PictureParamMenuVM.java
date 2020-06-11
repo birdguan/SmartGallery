@@ -29,7 +29,7 @@ import static com.birdguan.smartgallery.staticParam.ObserverMapKey.PictureParamM
  * @Date: 2020/5/26 15:05
  */
 public class PictureParamMenuVM extends ChildBaseVM {
-    private static final String TAG = "SmartGallery: PictureParamMenuVM";
+    private static final String TAG = "SmartGallery/PictureParamMenuVM";
 
     public static final int PROGRESS_MAX = 100;
     public static final int LISTENER_SIZE = 5;
@@ -163,11 +163,8 @@ public class PictureParamMenuVM extends ChildBaseVM {
             mParamList.clear();
             mParamList.addAll(pictureParamMyConsumer.getParamList());
 
-            MyLog.d(TAG, "fresh",
-                    "状态:pictureParamMyConsumer:mNowSelectListenerPosition:mParamList:",
-                    "运行了undo或者redo并且当前处于param中并且当前指向的consumer为" +
-                            "PictureParamMyConsumer，此时需要将数据刷新为当前PictureParamMyConsumer中的数据"
-                    , pictureParamMyConsumer , mNowSelectListenerPosition , mParamList);
+            MyLog.d(TAG, "fresh", "状态:pictureParamMyConsumer:mNowSelectListenerPosition:mParamList:",
+                    "运行了undo或者redo并且当前处于param中并且当前指向的consumer为PictureParamMyConsumer，此时需要将数据刷新为当前PictureParamMyConsumer中的数据" , pictureParamMyConsumer , mNowSelectListenerPosition , mParamList);
         } else {
             mSelectParam.set(PROGRESS_MAX / 2);
             for (int i = 0; i < 4; i++) {
@@ -176,11 +173,8 @@ public class PictureParamMenuVM extends ChildBaseVM {
 
             isRunNow = false;
 
-            MyLog.d(TAG, "fresh",
-                    "状态:consumer:mNowSelectListenerPosition:mParamList:",
-                    "运行了undo或者redo并且当前处于param中但是当前的consumer不为PictureParamMyConsumer," +
-                            "此时需要将数据刷新为初始状态" ,
-                    consumer , mNowSelectListenerPosition , mParamList);
+            MyLog.d(TAG, "fresh", "状态:consumer:mNowSelectListenerPosition:mParamList:",
+                    "运行了undo或者redo并且当前处于param中但是当前的consumer不为PictureParamMyConsumer，此时需要将数据刷新为初始状态" , consumer , mNowSelectListenerPosition , mParamList);
         }
     }
 }

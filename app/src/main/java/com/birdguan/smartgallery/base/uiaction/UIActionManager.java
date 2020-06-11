@@ -22,7 +22,7 @@ import io.reactivex.FlowableOnSubscribe;
  * @Date: 2020/5/25 12:10
  */
 public class UIActionManager {
-    public static final String TAG = "SmartGallery: UIActionManager";
+    public static final String TAG = "SmartGallery/UIActionManager";
     public static final int DEFAULT_THROTTLE_MILLISECONDS = 400;
     public static final int CLICK_ACTION = 0;
     public static final int ITEM_SELECTED_ACTION = 1;

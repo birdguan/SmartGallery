@@ -13,7 +13,7 @@ import java.util.List;
  * @Date: 2020/6/4 15:24
  */
 public class LocalFrameImageUriFetch implements IImageUriFetch {
-    private static final String TAG = "SmartGallery: LocalFrameImageUriFetch";
+    private static final String TAG = "SmartGallery/LocalFrameImageUriFetch";
 
     private static LocalFrameImageUriFetch mLocalFrameImageUriFetch;
 

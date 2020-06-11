@@ -15,7 +15,7 @@ import java.util.Map;
  * @Date: 2020/5/25 21:13
  */
 public class SystemTypefaceFetch implements ITypefaceFetch {
-    private static final String TAG = "SmartGallery: SystemTypefaceFetch";
+    private static final String TAG = "SmartGallery/SystemTypefaceFetch";
 
     private static SystemTypefaceFetch mSystemTypefaceFetch;
     private static final Map<String, Typeface> mTypefaceMap = new HashMap<>();

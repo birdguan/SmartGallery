@@ -26,7 +26,7 @@ import static com.birdguan.smartgallery.base.BaseSeekBarRecycleViewVM.PROGRESS_M
  * @Date: 2020/6/8 21:03
  */
 public class CutView extends PinchImageView {
-    private static String TAG = "SmartGalley: CutView";
+    private static String TAG = "SmartGalley/CutView";
     public static final int SCALE_MODEL = 0;
     public static final int CUT_MODEL = 1;
     public static final int INSERT_IMAGE_MODEL = 2;

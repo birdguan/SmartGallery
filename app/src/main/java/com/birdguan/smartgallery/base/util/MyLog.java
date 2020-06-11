@@ -7,7 +7,7 @@ import android.util.Log;
  * @Date: 2020/5/25 14:47
  */
 public class MyLog {
-    private static final String TAG = "SmartGallery: MyLog";
+    private static final String TAG = "SmartGallery/MyLog";
 
     public static void d(String tag, String method, String message, Object... objects) {
         StringBuilder stringBuilder = new StringBuilder();

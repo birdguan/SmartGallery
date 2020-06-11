@@ -36,7 +36,7 @@ import static com.birdguan.smartgallery.staticParam.StaticParam.PICTURE_FILTER_S
  * @Date: 2020/6/9 10:09
  */
 public class PictureFilterMenuVM extends BaseSeekBarRecycleViewVM<PictureFilterMenuVM.PictureFilterItemVM> {
-    private static final String TAG = "SmartGallery:PictureFilterMenuVM";
+    private static final String TAG = "SmartGallery/PictureFilterMenuVM";
 
     private final StringConsumerChain mStringConsumerChain = StringConsumerChain.getInstance();
     private final String mSampleImageUri;

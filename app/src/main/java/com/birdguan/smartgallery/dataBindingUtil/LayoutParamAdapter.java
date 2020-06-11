@@ -14,7 +14,7 @@ import com.birdguan.smartgallery.base.util.MyUtil;
  * @Date: 2020/5/25 18:01
  */
 public class LayoutParamAdapter {
-    private static final String TAG = "SmartGallery: LayoutParamAdapter";
+    private static final String TAG = "SmartGallery/LayoutParamAdapter";
 
     @BindingAdapter(value = {
             "bindingWidth" ,

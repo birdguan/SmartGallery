@@ -8,12 +8,14 @@ import android.Manifest;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.widget.Spinner;
 
 import com.birdguan.smartgallery.R;
 import com.birdguan.smartgallery.base.BaseActivity;
 import com.birdguan.smartgallery.base.util.MyLog;
 import com.birdguan.smartgallery.base.util.ObserverParamMap;
 import com.birdguan.smartgallery.viewModel.MainActivityVM;
+import com.birdguan.smartgallery.viewModel.itemManagerVM.DirectorySpinnerItemManagerVM;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import static com.birdguan.smartgallery.base.viewmodel.ItemManagerBaseVM.CLICK_ITEM;
@@ -21,9 +23,9 @@ import static com.birdguan.smartgallery.staticParam.ObserverMapKey.DirectorySpin
 import static com.birdguan.smartgallery.staticParam.ObserverMapKey.PictureItemManagerVM_mImageUri;
 
 public class MainActivity extends BaseActivity {
-    private static final String TAG = "SmartGallery: MainActivity";
+    private static final String TAG = "SmartGallery/MainActivity";
 
-    private MainActivityBinding mMainActivityBinding;
+    private com.birdguan.smartgallery.ui.MainActivityBinding mMainActivityBinding;
     private MainActivityVM mMainActivityVM;
 
     static  {

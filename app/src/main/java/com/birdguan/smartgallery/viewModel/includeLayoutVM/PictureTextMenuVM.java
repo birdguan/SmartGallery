@@ -41,7 +41,7 @@ import static com.birdguan.smartgallery.viewModel.includeLayoutVM.PictureTextPar
  * @Date: 2020/6/9 10:15
  */
 public class PictureTextMenuVM extends BaseSeekBarRecycleViewVM<PictureTextMenuVM.PictureTextItemVM> implements CutView.OnLimitMaxRectChangeListener , MoveFrameLayout.OnPlaceChangedListener {
-    private static final String TAG = "SmartGallery:PictureTextMenuVM";
+    private static final String TAG = "SmartGallery/PictureTextMenuVM";
 
     public static final int TEXT_CHANGE = 3;
 
@@ -182,7 +182,7 @@ public class PictureTextMenuVM extends BaseSeekBarRecycleViewVM<PictureTextMenuV
     }
 
     public static class PictureTextItemVM extends ItemBaseVM {
-        private static final String TAG = "SmartGallery: PictureFilterItemVM";
+        private static final String TAG = "SmartGallery/PictureFilterItemVM";
 
         private boolean isAdd = false;
         public ObservableField<String> mTypefaceName = new ObservableField<>();

@@ -16,7 +16,7 @@ import java.lang.reflect.Method;
  * @Date: 2020/5/25 17:56
  */
 public class BindingUtils {
-    private static final String TAG = "SmartGallery: BindingAdapters";
+    private static final String TAG = "SmartGallery/BindingAdapters";
 
     /**
      * Helper to throw an exception when {@link androidx.databinding.ViewDataBinding#setVariable(int,

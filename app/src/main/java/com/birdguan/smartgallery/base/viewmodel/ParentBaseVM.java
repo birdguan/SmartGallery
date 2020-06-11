@@ -16,7 +16,7 @@ import java.util.Map;
  * @Date: 2020/6/8 21:45
  */
 public abstract class ParentBaseVM extends ChildBaseVM {
-    private static final String TAG = "SmartGallery:ParentBaseVM";
+    private static final String TAG = "SmartGallery/ParentBaseVM";
     @SuppressLint("UseSparseArrays")
     protected Map<Integer , ChildBaseVM> mChildBaseVMMap = new HashMap<>();
     protected ChildBaseVM mNowChildBaseVM = null;

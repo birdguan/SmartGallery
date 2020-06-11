@@ -8,7 +8,7 @@ import com.birdguan.smartgallery.base.viewmodel.BaseVM;
  * @Date: 2020/5/26 11:38
  */
 public class ProgressChangedUIAction extends BaseUIAction {
-    private static final String TAG = "SmartGallery: ProgressChangedUIAction";
+    private static final String TAG = "SmartGallery/ProgressChangedUIAction";
     private UIAction.UIActionListener<ProgressChangedUIAction> mOnProgressChangedListener = null;
     private int mProgress = Integer.MIN_VALUE;
 

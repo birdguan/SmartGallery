@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
  * @Date: 2020/5/25 17:58
  */
 public class ItemDecoration {
-    private static final String TAG = "SmartGallery: ItemDecoration";
+    private static final String TAG = "SmartGallery/ItemDecoration";
 
     public static RecyclerView.ItemDecoration defaultGridLayoutItemDecoration() {
         return new RecyclerView.ItemDecoration(){

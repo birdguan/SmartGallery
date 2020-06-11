@@ -11,7 +11,7 @@ import org.opencv.core.Rect;
  * @Date: 2020/6/4 15:43
  */
 public class CutMyConsumer extends BaseMyConsumer {
-    private static final String TAG = "SmartGallery: BaseMyConsumer";
+    private static final String TAG = "SmartGallery/BaseMyConsumer";
 
     private Rect mRect;
 

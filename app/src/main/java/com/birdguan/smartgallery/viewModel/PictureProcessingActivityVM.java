@@ -71,7 +71,7 @@ import static com.birdguan.smartgallery.viewModel.includeLayoutVM.PictureTransfo
  * @Date: 2020/6/8 21:43
  */
 public class PictureProcessingActivityVM extends ParentBaseVM {
-    private static final String TAG = "SmartGallery: PictureProcessingActivityVM";
+    private static final String TAG = "SmartGallery/PictureProcessingActivityVM";
 
     public static final int SELECT_PICTURE_FILTER = 0;
     public static final int SELECT_PICTURE_TRANSFORM = 1;
@@ -361,7 +361,7 @@ public class PictureProcessingActivityVM extends ParentBaseVM {
         File imageFile = new File(SHARE_IMAGE);
         Uri data;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            data = FileProvider.getUriForFile(SmartGalleryApplication.getAppContext() , "com.birdguan.smartgallery.fileprovider", imageFile);
+            data = FileProvider.getUriForFile(SmartGalleryApplication.getAppContext() , "com.example.whensunset.pictureprocessinggraduationdesign.fileprovider", imageFile);
             // 给目标应用一个临时授权
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         } else {

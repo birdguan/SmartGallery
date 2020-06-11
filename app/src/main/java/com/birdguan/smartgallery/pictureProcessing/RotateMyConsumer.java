@@ -10,7 +10,7 @@ import org.opencv.core.Mat;
  * @Date: 2020/6/8 21:40
  */
 public class RotateMyConsumer extends BaseMyConsumer {
-    private static final String TAG = "SmartGallery: RotateMyConsumer";
+    private static final String TAG = "SmartGallery/RotateMyConsumer";
 
     public static final double ROTATE_ANGLE_90 = 90.0;
     public static final double ROTATE_ANGLE_180 = 180.0;

@@ -47,7 +47,7 @@ import static com.birdguan.smartgallery.mete.CutView.INSERT_TEXT_MODEL;
  * @Date: 2020/5/25 17:39
  */
 public class BindingAdapters {
-    private static final String TAG = "SmartGallery: BindingAdapters";
+    private static final String TAG = "SmartGallery/BindingAdapters";
 
     @BindingAdapter(value = {"itemView", "items","itemAnimator","itemDecor","itemHeight","itemWidth"}, requireAll = false)
     public static <T> void setAdapter(final RecyclerView recyclerView, ItemViewArg<T> arg, final List<T> items, RecyclerView.ItemAnimator animator, RecyclerView.ItemDecoration decor , int itemHeight , int itemWidth) {
@@ -57,7 +57,7 @@ public class BindingAdapters {
         BindingRecyclerViewAdapter<T> adapter = new BindingRecyclerViewAdapter<>(arg);
         if (items!=null)adapter.setItems(items);
         if (animator!=null)recyclerView.setItemAnimator(animator);
-        if (recyclerView.getItemDecorationAt(0) == null) {
+        if (recyclerView.getItemDecorationCount() == 0) {
             recyclerView.addItemDecoration(decor);
         }
 

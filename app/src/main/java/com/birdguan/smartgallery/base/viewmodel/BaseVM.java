@@ -26,9 +26,9 @@ import static com.birdguan.smartgallery.base.uiaction.UIActionManager.CLICK_ACTI
  * @Date: 2020/5/25 11:42
  */
 public abstract class BaseVM extends ViewModel {
-    public static final String TAG = "SmartGallery: BaseVM";
+    public static final String TAG = "SmartGallery/BaseVM";
 
-    private Map<ObservableField, Observable.OnPropertyChangedCallback> mRegisteredViewModelFieldObserverMap;
+    private Map<ObservableField , Observable.OnPropertyChangedCallback> mRegisteredViewModelFiledObserverMap;
     protected final ObservableField<? super Object> mShowToastListener = new ObservableField<>();
     protected final List<ObservableField<? super Object>> mEventListenerList = new ArrayList<>();
     public UIActionManager mUIActionManager;
@@ -43,22 +43,25 @@ public abstract class BaseVM extends ViewModel {
         }
     }
 
-    public BaseVM() {}
+    public BaseVM() {
+    }
 
     protected void initDefaultUIActionManager() {
-        mUIActionManager = new UIActionManager(this, CLICK_ACTION);
+        mUIActionManager = new UIActionManager(this , CLICK_ACTION);
     }
 
     protected Flowable<Integer> getDefaultClickThrottleFlowable() {
         return mUIActionManager
                 .<ClickUIAction>getDefaultThrottleFlowable(CLICK_ACTION)
                 .map(ClickUIAction::getLastEventListenerPosition);
+
     }
 
     protected Flowable<Integer> getDefaultClickThrottleFlowable(int throttleMilliseconds) {
         return mUIActionManager
-                .<ClickUIAction>getDefaultThrottleFlowable(throttleMilliseconds, CLICK_ACTION)
+                .<ClickUIAction>getDefaultThrottleFlowable(throttleMilliseconds , CLICK_ACTION)
                 .map(ClickUIAction::getLastEventListenerPosition);
+
     }
 
     public void showToast(String message) {
@@ -67,10 +70,9 @@ public abstract class BaseVM extends ViewModel {
 
     public void checkEventListenerList(int eventListenerPosition) {
         if (eventListenerPosition >= mEventListenerList.size() || eventListenerPosition < 0) {
-            throw new RuntimeException("ListenerList数组越界");
+            throw new RuntimeException("数组越界，没有那么多listener");
         }
-        MyLog.d(TAG, "checkEventListenerList", "状态:class:eventListenerPosition:",
-                "", getRealClassName(), eventListenerPosition);
+        MyLog.d(TAG, "checkEventListenerList", "状态:class:eventListenerPosition:", "", getRealClassName(), eventListenerPosition);
     }
 
     public List<ObservableField<? super Object>> getEventListenerList() {
@@ -85,68 +87,65 @@ public abstract class BaseVM extends ViewModel {
         return getClass().getSimpleName();
     }
 
-    public void initListener(ChildBaseVM childBaseVM, ObservableAction observableAction,
-                             Integer... listenerPositions) {
-        if (childBaseVM == null) {
+    public void initListener(ChildBaseVM childVM, ObservableAction observableAction, Integer... listenerPositions) {
+        if (childVM == null) {
             throw new RuntimeException("被监听的childVM为null");
         }
         if (observableAction == null) {
             throw new RuntimeException("被监听的行为为null");
         }
         if (listenerPositions == null) {
-            throw new RuntimeException("传入的监听position为null");
+            throw new RuntimeException("被传入的监听器的position列表为null");
         }
 
-        // 监听某个childBaseVM的变化，以运行observableAction
+        // 监听 某个childVM的变化 以运行observableAction
         Flowable.fromArray(listenerPositions)
                 .filter(position -> {
-                    MyLog.d(TAG, "initListener",
-                            "状态:position:childBaseVM.mClickListenerList.size():",
-                            "过滤监听器", position, childBaseVM.getEventListenerList().size());
-                    return !(position == null || position >= childBaseVM.getEventListenerList().size());
-                })
-                .map((Function<Integer, ObservableField<? super Object>>) childBaseVM.getEventListenerList()::get)
+                    MyLog.d(TAG, "initListener", "状态:position:childVM.mClickListenerList.size():", "过滤监听器", position, childVM.getEventListenerList().size());
+                    return !(position == null || position >= childVM.getEventListenerList().size());
+                }).map((Function<Integer, ObservableField<? super Object>>) childVM.getEventListenerList()::get)
                 .subscribe(observableField -> {
                     Observable.OnPropertyChangedCallback onPropertyChangedCallback = new Observable.OnPropertyChangedCallback() {
                         @Override
-                        public void onPropertyChanged(Observable sender, int propertyId) {
-                            observableAction.onPropertyChanged(sender, propertyId);
+                        public void onPropertyChanged(Observable observable, int i) {
+                            observableAction.onPropertyChanged(observable, i);
                         }
                     };
-                    registered(observableField, onPropertyChangedCallback);
+                    registered(observableField , onPropertyChangedCallback);
                     observableField.addOnPropertyChangedCallback(onPropertyChangedCallback);
                 });
     }
 
-    private void registered(ObservableField observableField,
-                            Observable.OnPropertyChangedCallback onPropertyChangedCallback) {
-        if (mRegisteredViewModelFieldObserverMap == null) {
-            mRegisteredViewModelFieldObserverMap = new HashMap<>();
+    private void registered(ObservableField observableField , Observable.OnPropertyChangedCallback onPropertyChangedCallback) {
+        if (mRegisteredViewModelFiledObserverMap == null) {
+            mRegisteredViewModelFiledObserverMap = new HashMap<>();
         }
-        mRegisteredViewModelFieldObserverMap.put(observableField, onPropertyChangedCallback);
+        mRegisteredViewModelFiledObserverMap.put(observableField , onPropertyChangedCallback);
     }
 
     @Override
-    protected void onCleared() {
-        if (mRegisteredViewModelFieldObserverMap != null) {
-            for (ObservableField observableField : mRegisteredViewModelFieldObserverMap.keySet()) {
-                observableField.removeOnPropertyChangedCallback(mRegisteredViewModelFieldObserverMap.get(observableField));
+    public void onCleared() {
+        if (mRegisteredViewModelFiledObserverMap != null) {
+            for (ObservableField observableField : mRegisteredViewModelFiledObserverMap.keySet()) {
+                observableField.removeOnPropertyChangedCallback(mRegisteredViewModelFiledObserverMap.get(observableField));
             }
-            mRegisteredViewModelFieldObserverMap.clear();
+            mRegisteredViewModelFiledObserverMap.clear();
         }
     }
 
-    public boolean isNeedDestroy() {return true;}
+    public boolean isNeedDestroy() {
+        return true;
+    }
 
     public void isEventEnable(boolean isEnable) {
         mUIActionManager.setEnable(isEnable);
     }
 
-    public void beJoinedPreActionToEvent(UIActionManager.PreEventAction preEventAction) {
+    public void beJoinedPreActionToEvent(UIActionManager.PreEventAction preEventAction){
         mUIActionManager.setPreEventAction(preEventAction);
     }
 
-    public void beJoinedAfterActionToEvent(UIActionManager.AfterEventAction afterEventAction) {
+    public void beJoinedAfterActionToEvent(UIActionManager.AfterEventAction afterEventAction){
         mUIActionManager.setAfterEventAction(afterEventAction);
     }
 }

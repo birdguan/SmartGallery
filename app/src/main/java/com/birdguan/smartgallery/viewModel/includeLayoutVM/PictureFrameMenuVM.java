@@ -122,7 +122,7 @@ public class PictureFrameMenuVM extends BaseSeekBarRecycleViewVM<PictureFrameMen
     }
 
     public static class PictureFrameItemVM extends ItemBaseVM {
-        private static final String TAG = "SmartGallery:PictureFilterItemVM";
+        private static final String TAG = "SmartGallery/PictureFilterItemVM";
 
         public static final int ITEM_PICTURE_RESIZE_WIDTH = 80;
         public static final int ITEM_PICTURE_RESIZE_HEIGHT = 80;

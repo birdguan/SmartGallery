@@ -12,7 +12,7 @@ import com.birdguan.smartgallery.base.viewmodel.ItemManagerBaseVM;
  * @Date: 2020/5/25 15:30
  */
 public class ItemSelectedUIAction extends BaseUIAction {
-    private static final String TAG = "SmartGallery: ItemSelectedAction";
+    private static final String TAG = "SmartGallery/ItemSelectedAction";
 
     private UIActionListener<ItemSelectedUIAction> mOnItemSelectedListener = null;
     private int mSelectedItemPostion = -1;

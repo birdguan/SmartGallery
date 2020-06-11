@@ -11,7 +11,7 @@ import java.util.List;
  * @Date: 2020/5/25 16:04
  */
 public abstract class ChildBaseVM extends BaseVM {
-    private static final String TAG = "SmartGallery: ChildBaseVM";
+    private static final String TAG = "SmartGallery/ChildBaseVM";
     private static final int RESUME = 1;
     private static final int STOP = 2;
 

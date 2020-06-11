@@ -13,7 +13,7 @@ import static com.birdguan.smartgallery.staticParam.ObserverMapKey.SHOW_TOAST_ME
  * @Date: 2020/5/25 16:30
  */
 public class ObserverParamMap {
-    public static final String TAG = "SmartGallery: ObserverParamMap";
+    public static final String TAG = "SmartGallery/ObserverParamMap";
     private Map<Object, Object> mObjectMap = new HashMap<>();
 
     public static ObserverParamMap setToastMessage(String message) {

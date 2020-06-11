@@ -8,7 +8,7 @@ import com.birdguan.smartgallery.base.viewmodel.BaseVM;
  * @Date: 2020/5/26 11:45
  */
 public class TextChangedUIAction extends BaseUIAction {
-    private static final String TAG = "SmartGallery: TextChangedUIAction";
+    private static final String TAG = "SmartGallery/TextChangedUIAction";
     private UIActionListener<TextChangedUIAction> mTextChangedListener = null;
     private CharSequence mNowText;
 

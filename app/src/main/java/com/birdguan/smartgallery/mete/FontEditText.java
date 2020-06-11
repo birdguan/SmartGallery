@@ -11,7 +11,7 @@ import androidx.appcompat.widget.AppCompatEditText;
  * @Date: 2020/6/8 21:14
  */
 public class FontEditText extends AppCompatEditText {
-    private static final String TAG = "SmartGallery: FontEditText";
+    private static final String TAG = "SmartGallery/FontEditText";
     public FontEditText(Context context) {
         super(context);
     }
