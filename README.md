@@ -1,5 +1,6 @@
 # Smart Gallery，一款使用AI技术的图像处理工具
-![](imgs/logo.jpg)
+![](imgs/logo.jpg)  
+<img src="imgs/show.jpg"   width="680">
 ## 基本信息
 ### 功能
 1. 选择图像或拍摄图像
