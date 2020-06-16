@@ -35,20 +35,24 @@ public class LayoutManager {
         return new LayoutManagerFactory() {
             @Override
             public RecyclerView.LayoutManager create(RecyclerView recyclerView) {
-                return new LinearLayoutManager(recyclerView.getContext(), LinearLayoutManager.HORIZONTAL, false);
+                return new LinearLayoutManager(recyclerView.getContext(),
+                        LinearLayoutManager.HORIZONTAL,
+                        false);
             }
         };
     }
 
-    public static LayoutManagerFactory linear(@Orientation final int orientation, final boolean reverseLayout) {
+    public static LayoutManagerFactory linear(@Orientation final int orientation,
+                                              final boolean reverseLayout) {
         return new LayoutManagerFactory() {
             @Override
             public RecyclerView.LayoutManager create(RecyclerView recyclerView) {
-                return new LinearLayoutManager(recyclerView.getContext(), orientation, reverseLayout);
+                return new LinearLayoutManager(recyclerView.getContext(),
+                        orientation,
+                        reverseLayout);
             }
         };
     }
-
 
     public static LayoutManagerFactory grid(final int spanCount) {
         return new LayoutManagerFactory() {
@@ -59,18 +63,23 @@ public class LayoutManager {
         };
     }
 
-
-    public static LayoutManagerFactory grid(final int spanCount, @Orientation final int orientation, final boolean reverseLayout) {
+    public static LayoutManagerFactory grid(final int spanCount,
+                                            @Orientation final int orientation,
+                                            final boolean reverseLayout) {
         return new LayoutManagerFactory() {
             @Override
             public RecyclerView.LayoutManager create(RecyclerView recyclerView) {
-                return new GridLayoutManager(recyclerView.getContext(), spanCount, orientation, reverseLayout);
+                return new GridLayoutManager(recyclerView.getContext(),
+                        spanCount,
+                        orientation,
+                        reverseLayout);
             }
         };
     }
 
 
-    public static LayoutManagerFactory staggeredGrid(final int spanCount, @Orientation final int orientation) {
+    public static LayoutManagerFactory staggeredGrid(final int spanCount,
+                                                     @Orientation final int orientation) {
         return new LayoutManagerFactory() {
             @Override
             public RecyclerView.LayoutManager create(RecyclerView recyclerView) {

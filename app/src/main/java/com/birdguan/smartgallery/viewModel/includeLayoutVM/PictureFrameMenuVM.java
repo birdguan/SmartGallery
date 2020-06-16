@@ -39,7 +39,7 @@ import static com.birdguan.smartgallery.staticParam.StaticParam.PICTURE_FRAME_AD
  * @Date: 2020/6/9 10:13
  */
 public class PictureFrameMenuVM extends BaseSeekBarRecycleViewVM<PictureFrameMenuVM.PictureFrameItemVM> implements CutView.OnLimitRectChangedListener {
-    private static final String TAG = "何时夕:PictureFrameMenuVM";
+    private static final String TAG = "SmartGalley/PictureFrameMenuVM";
 
     public final ObservableField<String> mInsertImagePath = new ObservableField<>();
     private final IImageUriFetch mLocalFrameImageUriFetch = LocalFrameImageUriFetch.getInstance();
@@ -57,7 +57,9 @@ public class PictureFrameMenuVM extends BaseSeekBarRecycleViewVM<PictureFrameMen
     protected void initItemVM() {
         mDataItemList.clear();
 
-        PictureFrameItemVM firstPictureFrameItemVM = new PictureFrameItemVM(mEventListenerList , Uri.fromFile(new File(PICTURE_FRAME_ADD_IMAGE)).toString() , 0 , true);
+        PictureFrameItemVM firstPictureFrameItemVM = new PictureFrameItemVM(mEventListenerList,
+                Uri.fromFile(new File(PICTURE_FRAME_ADD_IMAGE)).toString(),
+                0 , true);
         mDataItemList.add(firstPictureFrameItemVM);
 
         final int[] nowPosition = {1};

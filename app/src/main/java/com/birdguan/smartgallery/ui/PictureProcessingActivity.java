@@ -30,7 +30,7 @@ import static com.birdguan.smartgallery.viewModel.PictureProcessingActivityVM.CL
 import static com.birdguan.smartgallery.viewModel.PictureProcessingActivityVM.CLICK_SHARE;
 
 public class PictureProcessingActivity extends BaseActivity {
-    private static final String TAG = "何时夕:PictureProcessingActivity";
+    private static final String TAG = "SmartGallery/PictureProcessingActivity";
 
     private com.birdguan.smartgallery.ui.PictureProcessingActivityBinding mPictureProcessingActivityBinding;
     private PictureProcessingActivityVM mPictureProcessingActivityVM;
@@ -38,7 +38,8 @@ public class PictureProcessingActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPictureProcessingActivityBinding = DataBindingUtil.setContentView(this , R.layout.activity_picture_processing);
+        mPictureProcessingActivityBinding = DataBindingUtil.setContentView(this,
+                R.layout.activity_picture_processing);
         mPictureProcessingActivityVM = new PictureProcessingActivityVM(getIntent().getStringExtra("imageUri"));
         mPictureProcessingActivityBinding.setViewModel(mPictureProcessingActivityVM);
 

@@ -1,7 +1,3 @@
-//
-// Created by 何时夕 on 2018/3/1.
-//
-
 #include <jni.h>
 #include <string>
 #include <iostream>

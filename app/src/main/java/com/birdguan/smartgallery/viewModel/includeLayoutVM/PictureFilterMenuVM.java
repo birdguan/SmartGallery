@@ -57,9 +57,17 @@ public class PictureFilterMenuVM extends BaseSeekBarRecycleViewVM<PictureFilterM
         Flowable.fromIterable(FilterAction.getAllFilterAction())
                 .subscribe(filterAction -> {
                     if (filterAction instanceof AIFilterAction) {
-                        mDataItemList.add(new PictureFilterItemVM(mEventListenerList , false , position[0]++ , filterAction , ((AIFilterAction) filterAction).getImageUri()));
+                        mDataItemList.add(new PictureFilterItemVM(mEventListenerList ,
+                                false ,
+                                position[0]++ ,
+                                filterAction ,
+                                ((AIFilterAction) filterAction).getImageUri()));
                     } else {
-                        mDataItemList.add(new PictureFilterItemVM(mEventListenerList , false , position[0]++ , filterAction , mSampleImageUri));
+                        mDataItemList.add(new PictureFilterItemVM(mEventListenerList ,
+                                false ,
+                                position[0]++,
+                                filterAction,
+                                mSampleImageUri));
                     }
                 });
     }
@@ -72,7 +80,8 @@ public class PictureFilterMenuVM extends BaseSeekBarRecycleViewVM<PictureFilterM
                 return;
             }
             FilterAction filterAction = ObserverParamMap.staticGetValue(observable , PictureFilterItemVM_mFilterAction);
-            UIActionManager.CallAllAfterEventAction callAllAfterEventAction = ObserverParamMap.staticGetValue(observable , PictureFilterItemVM_CallAllAfterEventAction);
+            UIActionManager.CallAllAfterEventAction callAllAfterEventAction =
+                    ObserverParamMap.staticGetValue(observable , PictureFilterItemVM_CallAllAfterEventAction);
 
             PictureFilterMyConsumer pictureFilterMyConsumer = new PictureFilterMyConsumer(filterAction);
             Flowable<Mat> flowable;
@@ -90,9 +99,14 @@ public class PictureFilterMenuVM extends BaseSeekBarRecycleViewVM<PictureFilterM
                 if (callAllAfterEventAction != null) {
                     callAllAfterEventAction.callAllAfterEventAction();
                 }
-                MyLog.d(TAG, "useFilter", "状态:observerParamMap:", "" , observerParamMap);
+                MyLog.d(TAG, "useFilter",
+                        "状态:observerParamMap:",
+                        "" , observerParamMap);
             });
-            MyLog.d(TAG, "initClick", "状态:filterAction:isRunNow:isShowYesNo:", "调用滤镜" , filterAction , isRunNow , true);
+            MyLog.d(TAG,
+                    "initClick",
+                    "状态:filterAction:isRunNow:isShowYesNo:",
+                    "调用滤镜", filterAction , isRunNow , true);
         }, CLICK_ITEM);
     }
 
@@ -112,18 +126,25 @@ public class PictureFilterMenuVM extends BaseSeekBarRecycleViewVM<PictureFilterM
     }
 
     public static class PictureFilterItemVM extends ItemBaseVM {
-        public static final String TAG = "何时夕:PictureFilterItemVM";
+        public static final String TAG = "SmartGallery/PictureFilterItemVM";
 
         private boolean isAdd = false;
         public final FilterAction mFilterAction;
         public final String mSampleImageUri;
 
-        public PictureFilterItemVM(List<ObservableField<? super Object>> clickItemListenerList , boolean isAdd , Integer position , FilterAction filterAction , String sampleImageUri) {
+        public PictureFilterItemVM(List<ObservableField<? super Object>> clickItemListenerList ,
+                                   boolean isAdd,
+                                   Integer position,
+                                   FilterAction filterAction,
+                                   String sampleImageUri) {
             this(clickItemListenerList , position , filterAction , sampleImageUri);
             this.isAdd = isAdd;
         }
 
-        public PictureFilterItemVM(List<ObservableField<? super Object>> clickItemListenerList , Integer position , FilterAction filterAction , String sampleImageUri) {
+        public PictureFilterItemVM(List<ObservableField<? super Object>> clickItemListenerList,
+                                   Integer position,
+                                   FilterAction filterAction,
+                                   String sampleImageUri) {
             super(clickItemListenerList , position);
             initDefaultUIActionManager();
 
@@ -136,14 +157,19 @@ public class PictureFilterMenuVM extends BaseSeekBarRecycleViewVM<PictureFilterM
             mUIActionManager
                     .<ClickUIAction>getDefaultThrottleFlowable(CLICK_ACTION)
                     .filter(clickUIAction -> {
-                        MyLog.d(TAG, "initClickAction", "状态:isAdd:mFilterAction", "判断当前的item是否是 add" , isAdd , mFilterAction);
+                        MyLog.d(TAG, "initClickAction",
+                                "状态:isAdd:mFilterAction",
+                                "判断当前的item是否是 add" , isAdd , mFilterAction);
                         return (!isAdd && mFilterAction != null);
                     }).subscribe(clickUIAction -> {
                 ObserverParamMap observerParamMap = getPositionParamMap()
                         .set(PictureFilterItemVM_mFilterAction , mFilterAction)
-                        .set(PictureFilterItemVM_CallAllAfterEventAction, clickUIAction.getCallAllAfterEventAction());
+                        .set(PictureFilterItemVM_CallAllAfterEventAction,
+                                clickUIAction.getCallAllAfterEventAction());
                 mEventListenerList.get(CLICK_ITEM).set(observerParamMap);
-                MyLog.d(TAG, "initClickAction", "状态:observerParamMap:clickPosition", "" , observerParamMap , clickUIAction.getLastEventListenerPosition());
+                MyLog.d(TAG, "initClickAction",
+                        "状态:observerParamMap:clickPosition",
+                        "" , observerParamMap , clickUIAction.getLastEventListenerPosition());
             });
         }
 

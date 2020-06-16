@@ -7,9 +7,9 @@ import com.birdguan.smartgallery.base.viewmodel.BaseVM;
  * @Date: 2020/5/25 14:32
  */
 public abstract class BaseUIAction implements UIAction {
-    protected int mLastEventListenerPosition = -1;
-    protected UIActionManager.CallAllAfterEventAction mCallAllAfterEventAction;
-    protected UIActionManager.CallAllPreEventAction mCallAllPreEventAction;
+    int mLastEventListenerPosition = -1;
+    UIActionManager.CallAllAfterEventAction mCallAllAfterEventAction;
+    private UIActionManager.CallAllPreEventAction mCallAllPreEventAction;
 
     @Override
     public void onTriggerListener(int eventListenerPosition, BaseVM baseVM,

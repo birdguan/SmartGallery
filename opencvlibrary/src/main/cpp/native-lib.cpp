@@ -2,7 +2,7 @@
 #include <opencv2/core/cvdef.h>
 #include <opencv2/core/core.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
-#include<vector>
+#include <vector>
 
 using namespace cv;
 using namespace std;
@@ -235,8 +235,6 @@ int adjustBrightnessContrast(InputArray src, OutputArray dst, int brightness, in
         p[i] = COLOR_RANGE( (i - 127.5 * (1 - B)) * k + 127.5 * (1 + B) );
 
     LUT(input, lookupTable, output);
-
-
 
     return 0;
 }

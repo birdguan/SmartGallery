@@ -7,7 +7,6 @@ import com.birdguan.smartgallery.base.viewmodel.BaseVM;
  * @Date: 2020/5/25 14:21
  */
 public interface UIAction {
-    final String TAG = "SmartGallery/UIAction";
     boolean checkParams(Object[] params);
     interface UIActionListener<T> {
         void onUIActionChanged(T action);
@@ -15,10 +14,12 @@ public interface UIAction {
 
     void setListener(UIActionListener<? extends UIAction> listener);
 
-    void onTriggerListener(int eventListenerPosition, BaseVM baseVM,
+    void onTriggerListener(int eventListenerPosition,
+                           BaseVM baseVM,
                            UIActionManager.CallAllPreEventAction callAllPreEventAction,
                            UIActionManager.CallAllAfterEventAction callAllAfterEventAction,
                            Object... params);
+
     UIActionManager.CallAllAfterEventAction getCallAllAfterEventAction();
     UIActionManager.CallAllPreEventAction getCallAllPreEventAction();
 }
